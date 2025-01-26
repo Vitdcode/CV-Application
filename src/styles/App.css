@@ -1,0 +1,41 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.input-section {
+  height: 100vh;
+  width: 100%;
+}
+
+.personal-information {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: rgba(115, 171, 168, 0.055);
+  /*   background-color: rgba(42, 143, 101, 0.082); */
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.personal-information > h1:nth-child(1) {
+  margin-bottom: 60px;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
