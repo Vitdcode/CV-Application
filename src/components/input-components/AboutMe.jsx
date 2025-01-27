@@ -9,7 +9,8 @@ export default function AboutMe() {
 
   return (
     <div className="about-me-input-wrapper">
-      <h1>About Me</h1>
+      {/*       <h1>About Me</h1> */}
+      <label htmlFor="about-me-input">About Me</label>
       <textarea
         name="about-me"
         id="about-me-input"

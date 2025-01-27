@@ -25,6 +25,7 @@ function App() {
       <section id="about-me-section" className="input-wrapper">
         <AboutMe />
       </section>
+      <button>Submit</button>
     </div>
   );
 }
