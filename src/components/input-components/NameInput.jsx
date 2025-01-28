@@ -21,6 +21,7 @@ export default function NameInput() {
         value={firstName}
         id="first-name-input"
         onChange={firstNameChange}
+        required
       />
       <input
         type="text"
@@ -28,6 +29,7 @@ export default function NameInput() {
         value={lastName}
         id="last-name-input"
         onChange={lastNameChange}
+        required
       />
     </div>
   );

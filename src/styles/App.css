@@ -22,6 +22,12 @@ body {
   gap: 50px;
 }
 
+@media (max-width: 1920px) {
+  .all-inputs-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
 .input-wrapper {
   border: 1px solid rgb(255, 255, 255);
   /*   background-color: rgba(112, 153, 126, 0.226); */
@@ -36,16 +42,23 @@ body {
   margin-bottom: 60px;
 }
 
-#education-section {
+#education-section,
+#experience-section {
   position: relative;
 }
 
-#add-education-input-btn {
+#add-education-input-btn,
+#add-experience-input-btn {
   position: absolute;
   top: 5%;
   right: 2%;
 }
 
+/* #add-experience-input-btn {
+  position: absolute;
+
+}
+ */
 .education-input-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
