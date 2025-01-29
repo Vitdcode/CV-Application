@@ -10,20 +10,17 @@ import ExperienceInput from "./components/input-components/ExperienceInput";
 import { useState } from "react";
 
 function App() {
-  const [formIsValid, setFormIsValid] = useState(false);
-  /* const [formIsVisible, setFormIsVisible] = useState(true); */
+  const [formIsVisible, setFormIsVisible] = useState(true);
 
   function handleSubmit(e) {
     e.preventDefault();
-
     const form = e.target;
-
-    form.checkValidity() ? setFormIsValid(true) : setFormIsValid(false);
+    form.checkValidity() ? setFormIsVisible(false) : setFormIsVisible(true);
   }
 
   return (
     <div>
-      {!formIsValid ? (
+      {formIsVisible ? (
         <form action="" className="all-inputs-wrapper" onSubmit={handleSubmit}>
           <section id="personal-information-section" className="input-wrapper">
             <h1>Personal Information</h1>
@@ -48,15 +45,18 @@ function App() {
           <button id="submit-btn">Submit</button>
         </form>
       ) : (
-        resumePage()
+        <ResumePage setFormIsVisible={setFormIsVisible} />
       )}
     </div>
   );
 }
 
-function resumePage() {
+function ResumePage({ setFormIsVisible }) {
   return (
     <div>
+      <button id="edit-data-btn" onClick={() => setFormIsVisible(true)}>
+        Edit
+      </button>
       <h1>My Resume</h1>
     </div>
   );
