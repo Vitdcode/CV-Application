@@ -65,19 +65,31 @@ function App() {
           <button id="submit-btn">Submit</button>
         </form>
       ) : (
-        <ResumePage setFormIsVisible={setFormIsVisible} />
+        <ResumePage setFormIsVisible={setFormIsVisible} phoneNumber={phoneNumber} email={email} />
       )}
     </div>
   );
 }
 
-function ResumePage({ setFormIsVisible }) {
+function ResumePage({ setFormIsVisible, phoneNumber, email }) {
   return (
     <div>
       <button id="edit-data-btn" onClick={() => setFormIsVisible(true)}>
         Edit
       </button>
-      <h1>My Resume</h1>
+      <div className="phone-email-wrapper">
+        {" "}
+        <div className="phone-number-wrapper">
+          <h2>📞</h2>
+          <h2>Phone</h2>
+          <h3>{phoneNumber}</h3>
+        </div>
+        <div className="email-wrapper">
+          <h2>✉️</h2>
+          <h2>Email</h2>
+          <h3>{email}</h3>
+        </div>
+      </div>
     </div>
   );
 }

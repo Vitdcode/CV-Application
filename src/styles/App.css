@@ -54,11 +54,6 @@ body {
   right: 2%;
 }
 
-/* #add-experience-input-btn {
-  position: absolute;
-
-}
- */
 .education-input-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -69,17 +64,49 @@ body {
   grid-column: 1/3;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Display resume */
+
+.phone-email-wrapper {
+  display: flex;
+  gap: 60px;
+  background-color: rgb(127, 155, 95);
+  border-radius: 16px;
+  padding: 5px 30px;
+  color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.phone-number-wrapper,
+.email-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Phone text, Email text */
+.phone-number-wrapper > h2:nth-child(2),
+.email-wrapper > h2:nth-child(2) {
+  text-align: start;
+  margin-bottom: auto;
+}
+
+/* Phone number, Email adress */
+.phone-number-wrapper > h3:nth-child(3),
+.email-wrapper > h3:nth-child(3) {
+  grid-column: 2/3;
+  align-self: start;
+  font-size: 1.2rem;
+}
+
+/* Phone-emoji, Email emoji */
+.phone-number-wrapper > h2:nth-child(1),
+.email-wrapper > h2:nth-child(1) {
+  filter: grayscale(100%) brightness(90%);
+  font-size: 2rem;
+  margin-left: auto;
+  margin-right: 30px;
+  margin-block: auto;
+  width: fit-content;
+  background-color: rgba(255, 255, 255, 0.534);
+  padding: 5px;
+  border-radius: 10px;
+  grid-row: 1/3;
 }
