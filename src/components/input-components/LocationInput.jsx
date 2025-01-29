@@ -1,12 +1,4 @@
-import { useState } from "react";
-
-export default function LocationInput() {
-  const [location, setLocation] = useState("");
-
-  const locationChange = (e) => {
-    setLocation(e.target.value);
-  };
-
+export default function LocationInput({ location, setLocation }) {
   return (
     <div className="location-input-wrapper">
       <h2>Location</h2>
@@ -15,7 +7,7 @@ export default function LocationInput() {
         placeholder="Location"
         value={location}
         id="location-input"
-        onChange={locationChange}
+        onChange={(e) => setLocation(e.target.value)}
       />
     </div>
   );

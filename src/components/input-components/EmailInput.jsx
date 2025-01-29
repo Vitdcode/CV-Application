@@ -1,12 +1,4 @@
-import { useState } from "react";
-
-export default function EmailInput() {
-  const [email, setEmail] = useState("");
-
-  const emailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
+export default function EmailInput({ email, setEmail }) {
   return (
     <div className="email-input-wrapper">
       <h2>Email</h2>
@@ -15,7 +7,7 @@ export default function EmailInput() {
         placeholder="Email"
         value={email}
         id="email-input"
-        onChange={emailChange}
+        onChange={(e) => setEmail(e.target.value)}
       />
     </div>
   );

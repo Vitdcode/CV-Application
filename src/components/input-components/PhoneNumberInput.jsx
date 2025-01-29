@@ -1,12 +1,4 @@
-import { useState } from "react";
-
-export default function PhoneNumberInput() {
-  const [phoneNumber, setPhoneNumber] = useState("");
-
-  const phoneNumberChange = (e) => {
-    setPhoneNumber(e.target.value);
-  };
-
+export default function PhoneNumberInput({ phoneNumber, setPhoneNumber }) {
   return (
     <div className="phone-num-input-wrapper">
       <h2>Phone Number</h2>
@@ -15,7 +7,7 @@ export default function PhoneNumberInput() {
         placeholder="Phone Number"
         value={phoneNumber}
         id="phone-number-input"
-        onChange={phoneNumberChange}
+        onChange={(e) => setPhoneNumber(e.target.value)}
       />
     </div>
   );

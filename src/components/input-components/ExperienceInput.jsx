@@ -1,8 +1,4 @@
-import { useState } from "react";
-
-export default function ExperienceInput() {
-  const [experience, setExperience] = useState([{ id: crypto.randomUUID(), experience: "" }]);
-
+export default function ExperienceInput({ experience, setExperience }) {
   const addExperienceInput = () => {
     setExperience([...experience, { id: crypto.randomUUID(), experience: "" }]);
   };

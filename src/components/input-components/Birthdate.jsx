@@ -1,12 +1,4 @@
-import { useState } from "react";
-
-export default function BirthdayInput() {
-  const [birthdate, setBirthdate] = useState("");
-
-  const birthdateChange = (e) => {
-    setBirthdate(e.target.value);
-  };
-
+export default function BirthdayInput({ birthdate, setBirthdate }) {
   return (
     <div className="birthday-input-wrapper">
       <h2>Birthdate</h2>
@@ -15,7 +7,7 @@ export default function BirthdayInput() {
         placeholder="MM-DD-YYYY"
         id="birthdate-input"
         value={birthdate}
-        onChange={birthdateChange}
+        onChange={(e) => setBirthdate(e.target.value)}
       />
     </div>
   );

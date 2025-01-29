@@ -1,17 +1,6 @@
-import { useState } from "react";
+/* import { useState } from "react"; */
 
-export default function NameInput() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-
-  const firstNameChange = (e) => {
-    setFirstName(e.target.value);
-  };
-
-  const lastNameChange = (e) => {
-    setLastName(e.target.value);
-  };
-
+export default function NameInput({ firstName, lastName, setFirstName, setLastName }) {
   return (
     <div className="name-input-wrapper">
       <h2>Name</h2>
@@ -20,7 +9,7 @@ export default function NameInput() {
         placeholder="First Name"
         value={firstName}
         id="first-name-input"
-        onChange={firstNameChange}
+        onChange={(e) => setFirstName(e.target.value)}
         required
       />
       <input
@@ -28,7 +17,7 @@ export default function NameInput() {
         placeholder="Last Name"
         value={lastName}
         id="last-name-input"
-        onChange={lastNameChange}
+        onChange={(e) => setLastName(e.target.value)}
         required
       />
     </div>

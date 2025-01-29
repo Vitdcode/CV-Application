@@ -10,6 +10,18 @@ import ExperienceInput from "./components/input-components/ExperienceInput";
 import { useState } from "react";
 
 function App() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [birthdate, setBirthdate] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [location, setLocation] = useState("");
+  const [educationInputs, setEducationInputs] = useState([
+    { id: crypto.randomUUID(), from: "", to: "", school: "" },
+  ]);
+  const [aboutMe, setAboutMe] = useState("");
+  const [experience, setExperience] = useState([{ id: crypto.randomUUID(), experience: "" }]);
+
   const [formIsVisible, setFormIsVisible] = useState(true);
 
   function handleSubmit(e) {
@@ -24,23 +36,31 @@ function App() {
         <form action="" className="all-inputs-wrapper" onSubmit={handleSubmit}>
           <section id="personal-information-section" className="input-wrapper">
             <h1>Personal Information</h1>
-            <NameInput />
-            <BirthdayInput />
-            <EmailInput />
-            <PhoneNumberInput />
-            <LocationInput />
+            <NameInput
+              firstName={firstName}
+              lastName={lastName}
+              setFirstName={setFirstName}
+              setLastName={setLastName}
+            />
+            <BirthdayInput birthdate={birthdate} setBirthdate={setBirthdate} />
+            <EmailInput email={email} setEmail={setEmail} />
+            <PhoneNumberInput phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} />
+            <LocationInput location={location} setLocation={setLocation} />
           </section>
           <section id="education-section" className="input-wrapper">
             <h1>Education</h1>
-            <EductionInput />
+            <EductionInput
+              educationInputs={educationInputs}
+              setEducationInputs={setEducationInputs}
+            />
           </section>
           <section id="about-me-section" className="input-wrapper">
             <h1>About Me</h1>
-            <AboutMe />
+            <AboutMe aboutMe={aboutMe} setAboutMe={setAboutMe} />
           </section>
           <section id="experience-section" className="input-wrapper">
             <h1>Experience</h1>
-            <ExperienceInput />
+            <ExperienceInput experience={experience} setExperience={setExperience} />
           </section>
           <button id="submit-btn">Submit</button>
         </form>

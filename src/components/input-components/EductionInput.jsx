@@ -1,10 +1,4 @@
-import { useState } from "react";
-
-export default function EductionInput() {
-  const [educationInputs, setEducationInputs] = useState([
-    { id: crypto.randomUUID(), from: "", to: "", school: "" },
-  ]);
-
+export default function EductionInput({ educationInputs, setEducationInputs }) {
   const addEducationinput = () => {
     setEducationInputs([
       ...educationInputs,
