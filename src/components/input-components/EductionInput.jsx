@@ -2,7 +2,7 @@ export default function EductionInput({ educationInputs, setEducationInputs }) {
   const addEducationinput = () => {
     setEducationInputs([
       ...educationInputs,
-      { id: crypto.randomUUID(), from: "", to: "", school: "" },
+      { id: crypto.randomUUID(), from: "", to: "", school: "", degree: "" },
     ]);
   };
 
@@ -23,20 +23,30 @@ export default function EductionInput({ educationInputs, setEducationInputs }) {
             type="text"
             id={crypto.randomUUID()}
             className="school-input"
-            placeholder="School"
+            placeholder="School / University"
+            value={input.school}
             onChange={(e) => handleInputChange(input.id, "school", e.target.value)}
           />
           <input
             type="number"
             id={crypto.randomUUID()}
             placeholder="From (year)"
+            value={input.from}
             onChange={(e) => handleInputChange(input.id, "from", e.target.value)}
           />
           <input
             type="number"
             id={crypto.randomUUID()}
             placeholder="To (year)"
+            value={input.to}
             onChange={(e) => handleInputChange(input.id, "to", e.target.value)}
+          />
+          <input
+            type="text"
+            id={crypto.randomUUID()}
+            placeholder="Degree"
+            value={input.degree}
+            onChange={(e) => handleInputChange(input.id, "degree", e.target.value)}
           />
         </div>
       ))}

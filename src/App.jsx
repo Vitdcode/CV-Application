@@ -15,6 +15,7 @@ import AboutME from "./components/display-components/AboutMe";
 import profilePic from "./assets/profile-pic.png";
 import JobTitleInput from "./components/input-components/JobTitleInput";
 import JobTitle from "./components/display-components/JobTitle";
+import Education from "./components/display-components/Education";
 
 function App() {
   const [firstName, setFirstName] = useState("");
@@ -26,7 +27,7 @@ function App() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [location, setLocation] = useState("");
   const [educationInputs, setEducationInputs] = useState([
-    { id: crypto.randomUUID(), from: "", to: "", school: "" },
+    { id: crypto.randomUUID(), from: "", to: "", school: "", degree: "" },
   ]);
   const [aboutMe, setAboutMe] = useState("");
   const [experience, setExperience] = useState([{ id: crypto.randomUUID(), experience: "" }]);
@@ -82,13 +83,22 @@ function App() {
           name={firstLastName}
           jobTitle={jobTitle}
           aboutMe={aboutMe}
+          educationInputs={educationInputs}
         />
       )}
     </div>
   );
 }
 
-function ResumePage({ setFormIsVisible, phoneNumber, email, name, jobTitle, aboutMe }) {
+function ResumePage({
+  setFormIsVisible,
+  phoneNumber,
+  email,
+  name,
+  jobTitle,
+  aboutMe,
+  educationInputs,
+}) {
   return (
     <div className="resume-wrapper">
       <button id="edit-data-btn" onClick={() => setFormIsVisible(true)}>
@@ -103,10 +113,11 @@ function ResumePage({ setFormIsVisible, phoneNumber, email, name, jobTitle, abou
           <Name name={name} />
           <JobTitle jobTitle={jobTitle} />
         </div>
-
         <img id="profile-pic" src={profilePic} alt="Profile Picture" />
-
         <AboutME aboutMe={aboutMe} />
+      </div>
+      <div className="education-wrapper-resumee">
+        <Education educationInputs={educationInputs} />
       </div>
     </div>
   );
