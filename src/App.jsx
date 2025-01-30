@@ -1,17 +1,26 @@
 import "./styles/App.css";
 import NameInput from "./components/input-components/NameInput";
-import BirthdayInput from "./components/input-components/Birthdate";
+import BirthdayInput from "./components/input-components/BirthdateInput";
 import EmailInput from "./components/input-components/EmailInput";
 import PhoneNumberInput from "./components/input-components/PhoneNumberInput";
 import LocationInput from "./components/input-components/LocationInput";
 import EductionInput from "./components/input-components/EductionInput";
-import AboutMe from "./components/input-components/AboutMe";
+import AboutMe from "./components/input-components/AboutMeInput";
 import ExperienceInput from "./components/input-components/ExperienceInput";
 import { useState } from "react";
+import Phone from "./components/display-components/Phone";
+import Email from "./components/display-components/Email";
+import Name from "./components/display-components/Name";
+import AboutME from "./components/display-components/AboutMe";
+import profilePic from "./assets/profile-pic.png";
+import JobTitleInput from "./components/input-components/JobTitleInput";
+import JobTitle from "./components/display-components/JobTitle";
 
 function App() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [jobTitle, setJobTitle] = useState("");
+  const firstLastName = `${firstName} ${lastName}`;
   const [birthdate, setBirthdate] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -42,6 +51,7 @@ function App() {
               setFirstName={setFirstName}
               setLastName={setLastName}
             />
+            <JobTitleInput jobTitle={jobTitle} setJobTitle={setJobTitle} />
             <BirthdayInput birthdate={birthdate} setBirthdate={setBirthdate} />
             <EmailInput email={email} setEmail={setEmail} />
             <PhoneNumberInput phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} />
@@ -65,30 +75,34 @@ function App() {
           <button id="submit-btn">Submit</button>
         </form>
       ) : (
-        <ResumePage setFormIsVisible={setFormIsVisible} phoneNumber={phoneNumber} email={email} />
+        <ResumePage
+          setFormIsVisible={setFormIsVisible}
+          phoneNumber={phoneNumber}
+          email={email}
+          name={firstLastName}
+          jobTitle={jobTitle}
+          aboutMe={aboutMe}
+        />
       )}
     </div>
   );
 }
 
-function ResumePage({ setFormIsVisible, phoneNumber, email }) {
+function ResumePage({ setFormIsVisible, phoneNumber, email, name, jobTitle, aboutMe }) {
   return (
-    <div>
+    <div className="resume-wrapper">
       <button id="edit-data-btn" onClick={() => setFormIsVisible(true)}>
         Edit
       </button>
       <div className="phone-email-wrapper">
-        {" "}
-        <div className="phone-number-wrapper">
-          <h2>📞</h2>
-          <h2>Phone</h2>
-          <h3>{phoneNumber}</h3>
-        </div>
-        <div className="email-wrapper">
-          <h2>✉️</h2>
-          <h2>Email</h2>
-          <h3>{email}</h3>
-        </div>
+        <Phone phoneNumber={phoneNumber} />
+        <Email email={email} />
+      </div>
+      <div className="name-about-me-wrapper">
+        <Name name={name} />
+        <img id="profile-pic" src={profilePic} alt="Profile Picture" />
+        <JobTitle jobTitle={jobTitle} />
+        <AboutME aboutMe={aboutMe} />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-export default function AboutMe({ aboutMe, setAboutMe }) {
+export default function AboutMeInput({ aboutMe, setAboutMe }) {
   return (
     <div className="about-me-input-wrapper">
       <textarea
