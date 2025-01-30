@@ -117,6 +117,7 @@ function ResumePage({
         <AboutME aboutMe={aboutMe} />
       </div>
       <div className="education-wrapper-resumee">
+        <h1>Education</h1>
         <Education educationInputs={educationInputs} />
       </div>
     </div>
