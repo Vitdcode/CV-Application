@@ -16,6 +16,7 @@ import profilePic from "./assets/profile-pic.png";
 import JobTitleInput from "./components/input-components/JobTitleInput";
 import JobTitle from "./components/display-components/JobTitle";
 import Education from "./components/display-components/Education";
+import Experience from "./components/display-components/Experience";
 
 function App() {
   const [firstName, setFirstName] = useState("");
@@ -30,7 +31,9 @@ function App() {
     { id: crypto.randomUUID(), from: "", to: "", school: "", degree: "" },
   ]);
   const [aboutMe, setAboutMe] = useState("");
-  const [experience, setExperience] = useState([{ id: crypto.randomUUID(), experience: "" }]);
+  const [experienceInputs, setExperienceInputs] = useState([
+    { id: crypto.randomUUID(), from: "", to: "", experience: "" },
+  ]);
 
   const [formIsVisible, setFormIsVisible] = useState(true);
 
@@ -71,9 +74,14 @@ function App() {
           </section>
           <section id="experience-section" className="input-wrapper">
             <h1>Experience</h1>
-            <ExperienceInput experience={experience} setExperience={setExperience} />
+            <ExperienceInput
+              experienceInputs={experienceInputs}
+              setExperienceInputs={setExperienceInputs}
+            />
           </section>
-          <button id="submit-btn">Submit</button>
+          <button id="submit-btn" type="submit">
+            Submit
+          </button>
         </form>
       ) : (
         <ResumePage
@@ -84,6 +92,7 @@ function App() {
           jobTitle={jobTitle}
           aboutMe={aboutMe}
           educationInputs={educationInputs}
+          experienceInputs={experienceInputs}
         />
       )}
     </div>
@@ -98,6 +107,7 @@ function ResumePage({
   jobTitle,
   aboutMe,
   educationInputs,
+  experienceInputs,
 }) {
   return (
     <div className="resume-wrapper">
@@ -116,9 +126,15 @@ function ResumePage({
         <img id="profile-pic" src={profilePic} alt="Profile Picture" />
         <AboutME aboutMe={aboutMe} />
       </div>
-      <div className="education-wrapper-resumee">
-        <h1>Education</h1>
-        <Education educationInputs={educationInputs} />
+      <div className="education-experience-wrapper">
+        <div className="education-wrapper-resumee">
+          <h1>Education</h1>
+          <Education educationInputs={educationInputs} />
+        </div>
+        <div className="experience-wrapper-resumee">
+          <h1>Experience</h1>
+          <Experience experienceInputs={experienceInputs} />
+        </div>
       </div>
     </div>
   );

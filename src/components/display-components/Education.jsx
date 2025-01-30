@@ -1,5 +1,4 @@
 export default function Education({ educationInputs }) {
-  console.log(educationInputs);
   return educationInputs.map((input) => (
     <>
       <div className="from-to-education-wraper-resumee">

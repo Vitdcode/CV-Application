@@ -14,7 +14,7 @@ export default function EductionInput({ educationInputs, setEducationInputs }) {
 
   return (
     <div>
-      <button id="add-education-input-btn" onClick={addEducationinput}>
+      <button id="add-education-input-btn" onClick={addEducationinput} type="button">
         + Add
       </button>
       {educationInputs.map((input) => (
