@@ -128,21 +128,35 @@ body {
   background-color: rgb(166, 170, 117);
   border-radius: 16px;
   padding: 100px 10px;
-  width: 90%;
+  width: 70%;
+}
+
+.name-and-job-title-wraper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 /* name */
-.name-about-me-wrapper > h1:nth-child(1) {
+.name-and-job-title-wraper > h1:nth-child(1) {
   font-size: 5rem;
+  margin-bottom: auto;
 }
 
+/* Job Title */
+
+.name-and-job-title-wraper > h2:nth-child(2) {
+  margin-bottom: auto;
+}
+
+/* about me text */
 .name-about-me-wrapper > h2:nth-child(3) {
   width: 60%;
 }
 
 /* about me text, name */
 .name-about-me-wrapper > h2:nth-child(3),
-.name-about-me-wrapper > h1:nth-child(1) {
+.name-and-job-title-wraper {
   text-align: start;
   margin-left: 40px;
 }

@@ -99,9 +99,13 @@ function ResumePage({ setFormIsVisible, phoneNumber, email, name, jobTitle, abou
         <Email email={email} />
       </div>
       <div className="name-about-me-wrapper">
-        <Name name={name} />
+        <div className="name-and-job-title-wraper">
+          <Name name={name} />
+          <JobTitle jobTitle={jobTitle} />
+        </div>
+
         <img id="profile-pic" src={profilePic} alt="Profile Picture" />
-        <JobTitle jobTitle={jobTitle} />
+
         <AboutME aboutMe={aboutMe} />
       </div>
     </div>
